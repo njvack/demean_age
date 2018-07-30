@@ -2,14 +2,15 @@
 
 import sys
 import numpy as np
+import pandas
 
-age = np.loadtxt(sys.argv[1], skiprows=1, usecols=3)
+participant_data = pandas.read_csv(sys.argv[1], sep='\t')
 
-mean_age = sum(age)/len(age)
+mean_age = participant_data.age.mean()
 
 assert mean_age > 12
 assert mean_age < 100
 
-np.savetxt("demeaned_age.txt", age-mean_age)
+np.savetxt("demeaned_age.txt", participant_data.age-mean_age)
 
 print("done!")
