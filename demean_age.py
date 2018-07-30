@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import numpy as np
+import numpy as npy
 
 age = np.loadtxt("participants.tsv", skiprows=1, usecols=3)
 
